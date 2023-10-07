@@ -5,6 +5,37 @@
 
 #include <iostream>
 
+#ifndef DSS_PROTOCOL_TYPE_NUMBER
+#define DSS_PROTOCOL_TYPE_NUMBER 12
+#endif // DSS_PROTOCOL_TYPE_NUMBER
+
+DSS_Protocol_t::DSS_Protocol_t() : packet(nullptr){};
+
+DSS_Protocol_t DSS_Protocol_t::makeHeaderDataOnly(const std::vector<uint8_t> &bin)
+{
+    DSS_Protocol_t result;
+
+    uint32_t currentIndex = 0;
+
+    // source MAC
+    if (ConvertPacket::getVariableDataFromBin(bin, currentIndex, MAC_ADDRESS_LENGTH, result.sourceMAC))
+        return DSS_Protocol_t();
+    currentIndex += MAC_ADDRESS_LENGTH;
+
+    // destination MAC
+    if (ConvertPacket::getVariableDataFromBin(bin, currentIndex, MAC_ADDRESS_LENGTH, result.destinationMAC))
+        return DSS_Protocol_t();
+    currentIndex += MAC_ADDRESS_LENGTH;
+
+    // type
+    if (ConvertPacket::getFromBin(bin, currentIndex, result.type))
+        return DSS_Protocol_t();
+    // no needing
+    // currentIndex += sizeof(type);
+
+    return result;
+}
+
 DSS_Protocol_t::DSS_Protocol_t(const PacketType_t packetType) : sourceMAC(MAC_ADDRESS_LENGTH), destinationMAC(MAC_ADDRESS_LENGTH), packet(nullptr)
 {
     type = (uint8_t)packetType;

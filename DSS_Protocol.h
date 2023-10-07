@@ -20,9 +20,12 @@ enum PacketType_t
 
 struct DSS_Protocol_t : public BasePacket_t
 {
+    DSS_Protocol_t();
     DSS_Protocol_t(const PacketType_t packetType);
     DSS_Protocol_t(const std::vector<uint8_t> &bin);
     ~DSS_Protocol_t();
+
+    static DSS_Protocol_t makeHeaderDataOnly(const std::vector<uint8_t> &bin);
 
     int fromBin(const std::vector<uint8_t> &bin) override;
     int toBin(std::vector<uint8_t> &bin) const override;
