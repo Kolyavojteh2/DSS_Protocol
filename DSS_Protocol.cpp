@@ -2,6 +2,7 @@
 #include "utils/ConvertPacket.h"
 #include "packets/BootstrapPacket.h"
 #include "packets/AliveNodeRequestPacket.h"
+#include "packets/AliveNodeResponsePacket.h"
 
 #include <iostream>
 
@@ -81,6 +82,7 @@ BasePacket_t *DSS_Protocol_t::makePacket(const PacketType_t packetType)
         break;
 
     case AliveNodeResponsePacket:
+        ptrRet = new AliveNodeResponsePacket_t;
         break;
 
     default:
@@ -105,6 +107,7 @@ BasePacket_t *DSS_Protocol_t::makePacketFromBin(const PacketType_t packetType, c
         break;
 
     case AliveNodeResponsePacket:
+        ptrRet = new AliveNodeResponsePacket_t(bin);
         break;
 
     default:
