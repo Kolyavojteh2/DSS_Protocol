@@ -1,4 +1,5 @@
 #include "AliveNodeResponsePacket.h"
+#include "../utils/ConvertPacket.h"
 
 #include <iostream>
 
@@ -16,16 +17,20 @@ AliveNodeResponsePacket_t::~AliveNodeResponsePacket_t() {}
 
 int AliveNodeResponsePacket_t::fromBin(const std::vector<uint8_t> &bin)
 {
-    // Unused
-    (void)bin;
+    uint32_t currentIndex = 0;
+
+    // parent MAC
+    if (ConvertPacket::getVariableDataFromBin(bin, currentIndex, MAC_ADDRESS_LENGTH, parentMAC))
+        return -1;
+    // no needing
+    // currentIndex += MAC_ADDRESS_LENGTH;
 
     return 0;
 }
 
 int AliveNodeResponsePacket_t::toBin(std::vector<uint8_t> &bin) const
 {
-    // Unused
-    (void)bin;
+    ConvertPacket::addVariableDataToBin(bin, parentMAC);
 
     return 0;
 }

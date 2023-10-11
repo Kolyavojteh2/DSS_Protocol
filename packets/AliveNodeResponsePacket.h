@@ -11,6 +11,8 @@ struct AliveNodeResponsePacket_t : public BasePacket_t
 
     int fromBin(const std::vector<uint8_t> &bin) override;
     int toBin(std::vector<uint8_t> &bin) const override;
+
+    std::vector<uint8_t> parentMAC;
 };
 
 #endif // ALIVE_NODE_RESPONSE_PACKET_H
