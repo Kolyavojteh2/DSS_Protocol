@@ -4,6 +4,14 @@
 #include <cinttypes>
 #include <vector>
 
+#ifndef MAC_ADDRESS_LENGTH
+#define MAC_ADDRESS_LENGTH (6)
+#endif // MAC_ADDRESS_LENGTH
+
+#ifndef NETWORK_ID_LENGTH
+#define NETWORK_ID_LENGTH (6)
+#endif // NETWORK_ID_LENGTH
+
 struct BasePacket_t
 {
 public:

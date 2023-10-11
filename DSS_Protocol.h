@@ -6,10 +6,6 @@
 
 #include "packets/BasePacket.h"
 
-#ifndef MAC_ADDRESS_LENGTH
-#define MAC_ADDRESS_LENGTH (6)
-#endif // MAC_ADDRESS_LENGTH
-
 enum PacketType_t
 {
     BootstrapPacket = 1,

@@ -3,14 +3,6 @@
 
 #include "BasePacket.h"
 
-#ifndef MAC_ADDRESS_LENGTH
-#define MAC_ADDRESS_LENGTH (6)
-#endif // MAC_ADDRESS_LENGTH
-
-#ifndef NETWORK_ID_LENGTH
-#define NETWORK_ID_LENGTH (6)
-#endif // NETWORK_ID_LENGTH
-
 struct BootstrapPacket_t : public BasePacket_t
 {
     BootstrapPacket_t();
