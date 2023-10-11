@@ -1,10 +1,10 @@
 #include "BootstrapPacket.h"
-#include "utils/ConvertPacket.h"
+#include "../utils/ConvertPacket.h"
 
 #include <iostream>
 
-BootstrapPacket_t::BootstrapPacket_t() : networkID(NETWORK_ID_LENGTH), rootMAC(MAC_ADDRESS_LENGTH), channel(0) {}
-BootstrapPacket_t::BootstrapPacket_t(const std::vector<uint8_t> &bin) : networkID(NETWORK_ID_LENGTH), rootMAC(MAC_ADDRESS_LENGTH), channel(0)
+BootstrapPacket_t::BootstrapPacket_t() : channel(0) {}
+BootstrapPacket_t::BootstrapPacket_t(const std::vector<uint8_t> &bin) : channel(0)
 {
     if (BootstrapPacket_t::fromBin(bin))
     {
