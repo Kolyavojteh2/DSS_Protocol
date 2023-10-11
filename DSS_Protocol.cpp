@@ -37,7 +37,7 @@ DSS_Protocol_t DSS_Protocol_t::makeHeaderDataOnly(const std::vector<uint8_t> &bi
     return result;
 }
 
-DSS_Protocol_t::DSS_Protocol_t(const PacketType_t packetType) : sourceMAC(MAC_ADDRESS_LENGTH), destinationMAC(MAC_ADDRESS_LENGTH), packet(nullptr)
+DSS_Protocol_t::DSS_Protocol_t(const PacketType_t packetType) : packet(nullptr)
 {
     type = (uint8_t)packetType;
 
