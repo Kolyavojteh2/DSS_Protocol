@@ -96,18 +96,19 @@ BasePacket_t *DSS_Protocol_t::makePacketFromBin(const PacketType_t packetType, c
 {
     BasePacket_t *ptrRet = nullptr;
 
+    std::vector<uint8_t> packetBin(bin.begin() + MAC_ADDRESS_LENGTH + MAC_ADDRESS_LENGTH + sizeof(type), bin.end());
     switch (packetType)
     {
     case BootstrapPacket:
-        ptrRet = new BootstrapPacket_t(bin);
+        ptrRet = new BootstrapPacket_t(packetBin);
         break;
 
     case AliveNodeRequestPacket:
-        ptrRet = new AliveNodeRequestPacket_t(bin);
+        ptrRet = new AliveNodeRequestPacket_t(packetBin);
         break;
 
     case AliveNodeResponsePacket:
-        ptrRet = new AliveNodeResponsePacket_t(bin);
+        ptrRet = new AliveNodeResponsePacket_t(packetBin);
         break;
 
     default:
