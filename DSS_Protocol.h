@@ -12,6 +12,13 @@ enum PacketType_t
 
     AliveNodeRequestPacket,
     AliveNodeResponsePacket,
+
+    ChronoUpdateRequestPacket,
+    ChronoUpdateResponsePacket,
+
+    GetConfigPacketRequest,
+    GetConfigPacketResponse,
+    SetConfigPacket,
 };
 
 struct DSS_Protocol_t : public BasePacket_t
