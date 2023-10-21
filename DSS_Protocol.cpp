@@ -1,8 +1,17 @@
 #include "DSS_Protocol.h"
 #include "utils/ConvertPacket.h"
+
 #include "packets/BootstrapPacket.h"
+
 #include "packets/AliveNodeRequestPacket.h"
 #include "packets/AliveNodeResponsePacket.h"
+
+#include "packets/ChronoUpdateRequestPacket.h"
+#include "packets/ChronoUpdateResponsePacket.h"
+
+#include "packets/GetConfigPacketRequest.h"
+#include "packets/GetConfigPacketResponse.h"
+#include "packets/SetConfigPacket.h"
 
 #include <iostream>
 
@@ -85,6 +94,26 @@ BasePacket_t *DSS_Protocol_t::makePacket(const PacketType_t packetType)
         ptrRet = new AliveNodeResponsePacket_t;
         break;
 
+    case ChronoUpdateRequestPacket:
+        ptrRet = new ChronoUpdateRequestPacket_t;
+        break;
+
+    case ChronoUpdateResponsePacket:
+        ptrRet = new ChronoUpdateResponsePacket_t;
+        break;
+
+    case GetConfigPacketRequest:
+        ptrRet = new GetConfigPacketRequest_t;
+        break;
+
+    case GetConfigPacketResponse:
+        ptrRet = new GetConfigPacketResponse_t;
+        break;
+
+    case SetConfigPacket:
+        ptrRet = new SetConfigPacket_t;
+        break;
+
     default:
         break;
     }
@@ -109,6 +138,26 @@ BasePacket_t *DSS_Protocol_t::makePacketFromBin(const PacketType_t packetType, c
 
     case AliveNodeResponsePacket:
         ptrRet = new AliveNodeResponsePacket_t(packetBin);
+        break;
+
+    case ChronoUpdateRequestPacket:
+        ptrRet = new ChronoUpdateRequestPacket_t(packetBin);
+        break;
+
+    case ChronoUpdateResponsePacket:
+        ptrRet = new ChronoUpdateResponsePacket_t(packetBin);
+        break;
+
+    case GetConfigPacketRequest:
+        ptrRet = new GetConfigPacketRequest_t(packetBin);
+        break;
+
+    case GetConfigPacketResponse:
+        ptrRet = new GetConfigPacketResponse_t(packetBin);
+        break;
+
+    case SetConfigPacket:
+        ptrRet = new SetConfigPacket_t(packetBin);
         break;
 
     default:
