@@ -19,6 +19,15 @@ enum PacketType_t
     GetConfigPacketRequest,
     GetConfigPacketResponse,
     SetConfigPacket,
+
+    GetSensorsPacketRequest,
+    GetSensorsPacketResponse,
+    GetSensorDataPacketRequest,
+    GetSensorDataPacketResponse,
+    GetSensorHeaderPacketRequest,
+    GetSensorHeaderPacketResponse,
+    ClearSensorDataRequest,
+    SetSensorReadingModeRequest,
 };
 
 struct DSS_Protocol_t : public BasePacket_t

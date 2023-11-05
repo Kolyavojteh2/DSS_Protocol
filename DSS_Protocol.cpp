@@ -13,6 +13,15 @@
 #include "packets/GetConfigPacketResponse.h"
 #include "packets/SetConfigPacket.h"
 
+#include "packets/GetSensorsPacketRequest.h"
+#include "packets/GetSensorsPacketResponse.h"
+#include "packets/GetSensorDataPacketRequest.h"
+#include "packets/GetSensorDataPacketResponse.h"
+#include "packets/GetSensorHeaderPacketRequest.h"
+#include "packets/GetSensorHeaderPacketResponse.h"
+#include "packets/ClearSensorDataRequest.h"
+#include "packets/SetSensorReadingModeRequest.h"
+
 #include <iostream>
 
 #ifndef DSS_PROTOCOL_TYPE_NUMBER
@@ -114,6 +123,38 @@ BasePacket_t *DSS_Protocol_t::makePacket(const PacketType_t packetType)
         ptrRet = new SetConfigPacket_t;
         break;
 
+    case GetSensorsPacketRequest:
+        ptrRet = new GetSensorsPacketRequest_t;
+        break;
+
+    case GetSensorsPacketResponse:
+        ptrRet = new GetSensorsPacketResponse_t;
+        break;
+
+    case GetSensorDataPacketRequest:
+        ptrRet = new GetSensorDataPacketRequest_t;
+        break;
+
+    case GetSensorDataPacketResponse:
+        ptrRet = new GetSensorDataPacketResponse_t;
+        break;
+
+    case GetSensorHeaderPacketRequest:
+        ptrRet = new GetSensorHeaderPacketRequest_t;
+        break;
+
+    case GetSensorHeaderPacketResponse:
+        ptrRet = new GetSensorHeaderPacketResponse_t;
+        break;
+
+    case ClearSensorDataRequest:
+        ptrRet = new ClearSensorDataRequest_t;
+        break;
+
+    case SetSensorReadingModeRequest:
+        ptrRet = new SetSensorReadingModeRequest_t;
+        break;
+
     default:
         break;
     }
@@ -158,6 +199,38 @@ BasePacket_t *DSS_Protocol_t::makePacketFromBin(const PacketType_t packetType, c
 
     case SetConfigPacket:
         ptrRet = new SetConfigPacket_t(packetBin);
+        break;
+
+    case GetSensorsPacketRequest:
+        ptrRet = new GetSensorsPacketRequest_t(packetBin);
+        break;
+
+    case GetSensorsPacketResponse:
+        ptrRet = new GetSensorsPacketResponse_t(packetBin);
+        break;
+
+    case GetSensorDataPacketRequest:
+        ptrRet = new GetSensorDataPacketRequest_t(packetBin);
+        break;
+
+    case GetSensorDataPacketResponse:
+        ptrRet = new GetSensorDataPacketResponse_t(packetBin);
+        break;
+
+    case GetSensorHeaderPacketRequest:
+        ptrRet = new GetSensorHeaderPacketRequest_t(packetBin);
+        break;
+
+    case GetSensorHeaderPacketResponse:
+        ptrRet = new GetSensorHeaderPacketResponse_t(packetBin);
+        break;
+
+    case ClearSensorDataRequest:
+        ptrRet = new ClearSensorDataRequest_t(packetBin);
+        break;
+
+    case SetSensorReadingModeRequest:
+        ptrRet = new SetSensorReadingModeRequest_t(packetBin);
         break;
 
     default:
