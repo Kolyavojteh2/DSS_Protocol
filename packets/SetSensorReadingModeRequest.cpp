@@ -37,3 +37,8 @@ int SetSensorReadingModeRequest_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int SetSensorReadingModeRequest_t::getPacketSize()
+{
+    return sizeof(isCyclic) + sizeof(period);
+}

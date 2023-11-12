@@ -46,3 +46,8 @@ int BootstrapPacket_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int BootstrapPacket_t::getPacketSize()
+{
+    return networkID.size() + rootMAC.size() + sizeof(channel);
+}

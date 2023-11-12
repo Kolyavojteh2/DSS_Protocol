@@ -29,3 +29,8 @@ int AliveNodeRequestPacket_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int AliveNodeRequestPacket_t::getPacketSize()
+{
+    return 0;
+}

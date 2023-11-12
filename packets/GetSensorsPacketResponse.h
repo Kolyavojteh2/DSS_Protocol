@@ -13,6 +13,8 @@ struct GetSensorsPacketResponse_t : public BasePacket_t
     int fromBin(const std::vector<uint8_t> &bin) override;
     int toBin(std::vector<uint8_t> &bin) const override;
 
+    int getPacketSize() override;
+
     std::vector<std::string> sensors;
 };
 

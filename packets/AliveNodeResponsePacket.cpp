@@ -34,3 +34,8 @@ int AliveNodeResponsePacket_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int AliveNodeResponsePacket_t::getPacketSize()
+{
+    return parentMAC.size();
+}

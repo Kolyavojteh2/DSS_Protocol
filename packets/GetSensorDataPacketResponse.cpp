@@ -105,3 +105,9 @@ int GetSensorDataPacketResponse_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int GetSensorDataPacketResponse_t::getPacketSize()
+{
+    return sizeof(uint8_t) + sensorName.size() + sizeof(uint8_t) + dataName.size() + sizeof(sizeTime) + sizeof(sizeData) +
+           dataTime.size() + dataValue.size();
+}

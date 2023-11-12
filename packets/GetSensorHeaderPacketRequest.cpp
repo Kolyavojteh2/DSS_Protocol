@@ -40,3 +40,8 @@ int GetSensorHeaderPacketRequest_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int GetSensorHeaderPacketRequest_t::getPacketSize()
+{
+    return sizeof(uint8_t) + sensorName.size();
+}
