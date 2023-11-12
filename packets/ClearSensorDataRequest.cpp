@@ -68,3 +68,8 @@ int ClearSensorDataRequest_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int ClearSensorDataRequest_t::getPacketSize()
+{
+    return sizeof(uint8_t) + sensorName.size() + sizeof(uint8_t) + dataName.size() + sizeof(timeFrom) + sizeof(timeTo);
+}

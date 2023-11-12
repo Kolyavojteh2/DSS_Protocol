@@ -69,3 +69,8 @@ int SetConfigPacket_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int SetConfigPacket_t::getPacketSize()
+{
+    return sizeof(uint8_t) + ns.size() + sizeof(uint8_t) + configName.size() + sizeof(uint8_t) + configValue.size();
+}

@@ -60,3 +60,12 @@ int GetSensorsPacketResponse_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int GetSensorsPacketResponse_t::getPacketSize()
+{
+    int m_size = sizeof(uint8_t);
+    for (auto &it : sensors)
+        m_size += sizeof(uint8_t) + it.size();
+
+    return m_size;
+}

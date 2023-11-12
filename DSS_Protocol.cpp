@@ -240,6 +240,11 @@ BasePacket_t *DSS_Protocol_t::makePacketFromBin(const PacketType_t packetType, c
     return ptrRet;
 }
 
+int DSS_Protocol_t::getPacketSize()
+{
+    return sourceMAC.size() + destinationMAC.size() + sizeof(type) + packet->getPacketSize();
+}
+
 int DSS_Protocol_t::fromBin(const std::vector<uint8_t> &bin)
 {
     uint32_t currentIndex = 0;

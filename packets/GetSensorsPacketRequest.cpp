@@ -29,3 +29,8 @@ int GetSensorsPacketRequest_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int GetSensorsPacketRequest_t::getPacketSize()
+{
+    return 0;
+}

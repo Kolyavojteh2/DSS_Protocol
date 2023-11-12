@@ -34,3 +34,8 @@ int ChronoUpdateRequestPacket_t::toBin(std::vector<uint8_t> &bin) const
 
     return 0;
 }
+
+int ChronoUpdateRequestPacket_t::getPacketSize()
+{
+    return sizeof(oldTime);
+}

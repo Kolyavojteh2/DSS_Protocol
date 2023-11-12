@@ -9,6 +9,8 @@ struct AliveNodeRequestPacket_t : public BasePacket_t
     AliveNodeRequestPacket_t(const std::vector<uint8_t> &bin);
     ~AliveNodeRequestPacket_t() override;
 
+    int getPacketSize() override;
+
     int fromBin(const std::vector<uint8_t> &bin) override;
     int toBin(std::vector<uint8_t> &bin) const override;
 };
