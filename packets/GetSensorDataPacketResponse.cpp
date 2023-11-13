@@ -99,10 +99,12 @@ int GetSensorDataPacketResponse_t::toBin(std::vector<uint8_t> &bin) const
     uint8_t count = dataTime.size() > 255 ? 255 : dataTime.size();
     ConvertPacket::addToBin(bin, count);
 
-    for (uint8_t i = 0; i < count; ++i)
+    uint8_t countTime = dataTime.size() > 255 ? 255 : dataTime.size();
+    for (uint8_t i = 0; i < countTime; ++i)
         ConvertPacket::addToBin(bin, dataTime[i]);
 
-    for (uint8_t i = 0; i < count; ++i)
+    uint8_t countData = dataValue.size() > 255 ? 255 : dataValue.size();
+    for (uint8_t i = 0; i < countData; ++i)
         ConvertPacket::addToBin(bin, dataValue[i]);
 
     return 0;
@@ -111,6 +113,9 @@ int GetSensorDataPacketResponse_t::toBin(std::vector<uint8_t> &bin) const
 int GetSensorDataPacketResponse_t::getPacketSize()
 {
     uint8_t count = dataTime.size() > 255 ? 255 : dataTime.size();
+    uint8_t countTime = dataTime.size() > 255 ? 255 : dataTime.size();
+    uint8_t countData = dataValue.size() > 255 ? 255 : dataValue.size();
+
     return sizeof(uint8_t) + sensorName.size() + sizeof(uint8_t) + dataName.size() + sizeof(sizeTime) + sizeof(sizeData) +
-           sizeof(count) + count + count;
+           sizeof(count) + countTime + countData;
 }
