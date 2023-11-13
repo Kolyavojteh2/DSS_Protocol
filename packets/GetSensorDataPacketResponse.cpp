@@ -117,5 +117,5 @@ int GetSensorDataPacketResponse_t::getPacketSize()
     uint8_t countData = dataValue.size() > 255 ? 255 : dataValue.size();
 
     return sizeof(uint8_t) + sensorName.size() + sizeof(uint8_t) + dataName.size() + sizeof(sizeTime) + sizeof(sizeData) +
-           sizeof(count) + countTime + countData;
+           sizeof(count) + (countTime * sizeTime) + countData;
 }
